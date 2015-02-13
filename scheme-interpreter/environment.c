@@ -15,13 +15,13 @@ struct node *StandardEnv(void)
         env[hash(">=")]     =   updateEnv(ge, ">=");
         env[hash("<=")]     =   updateEnv(le, "<=");
 
-/*        env[hash("sqrt")]   =   updateEnv(sqroot, "sqrt");
+        env[hash("sqrt")]   =   updateEnv(sqroot, "sqrt");
         env[hash("abs")]    =   updateEnv(absVal, "abs");
-        env[hash("pow")]    =   updateEnv(pow, "pow");
+        env[hash("pow")]    =   updateEnv(powr, "pow");
         env[hash("exp")]    =   updateEnv(expt, "exp");
         env[hash("cos")]    =   updateEnv(cosine, "cos");
         env[hash("sin")]    =   updateEnv(sine, "sin");
-        env[hash("log")]    =   updateEnv(logthm, "log"); */
+        env[hash("log")]    =   updateEnv(logBe, "log"); 
 
         env[hash("begin")]  =   updateEnv(begin, "begin");
         env[hash("min")]    =   updateEnv(min, "min");

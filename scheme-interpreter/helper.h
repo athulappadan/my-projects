@@ -82,3 +82,10 @@ struct node *len(struct node *);
 struct node *max(struct node *);
 struct node *min(struct node *);
 
+struct node *sqroot(struct node *);
+struct node *absVal(struct node *);
+struct node *powr(struct node *);
+struct node *expt(struct node *);
+struct node *cosine(struct node *);
+struct node *sine(struct node *);
+struct node *logBe(struct node *);

@@ -596,4 +596,227 @@ struct node *min(struct node *head)
         return copyNode(current);
 }
 
+struct node *sqroot(struct node *head)
+{
+        double result;
+        struct node *new = NULL;
 
+        if (head->next != NULL) {
+                printf("error> \n\nsqroot has been caled with %d arguments; it requires exactly one argument\n", length(head));
+                exit(0);
+        }
+
+        switch (head->flag) {
+                case 'i':
+                        result = sqrt(head->num);
+                        break;
+                case 'f':
+                        result = sqrt(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to sqrt() is not the correct type.\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *absVal(struct node *head)
+{
+        long result;
+        struct node *new = NULL;
+
+        if (head->next != NULL) {
+                printf("error> \n\nabsVal has benn called with %d arguments; it requires exactly one argument\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        result = abs(head->num);
+                        break;
+                case 'f':
+                        result = abs(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to absVal is not the correct type.\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'i';
+        new->num = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *powr(struct node *head)
+{
+        int l;
+        double x, y;
+        double result;
+        struct node *new = NULL;
+
+        if(l = length(head) != 2) {
+                printf("error> \n\npowr has been called with %d argumnets; it requires 2 arguments\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        x = (double) head->num;
+                        break;
+                case 'f':
+                        x = head->f;
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to powr is not the correct type.\n", head->str);
+                        exit(0);
+        }
+
+        switch(head->next->flag) {
+                case 'i':
+                        y = (double) head->next->num;
+                        break;
+                case 'f':
+                        y = head->next->f;
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the second argument to powr is not the correct type.\n", head->next->str);
+                        exit(0);
+        }
+
+        result = pow(x, y);
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *expt(struct node *head)
+{
+        double result;
+        struct node *new = NULL;
+
+        if (head->next != NULL) {
+                printf("error> \n\nexp has been called with %d arguments; it requires exactly one argument\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        result = exp(head->num);
+                        break;
+                case 'f':
+                        result = exp(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to expt is not the correct type\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *cosine(struct node *head)
+{
+        double result;
+        struct node *new = NULL;
+
+        if (head->next != NULL) {
+                printf("error> \n\ncosine has been called with %d arguments; it requires exactly one agument\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        result = cos(head->num);
+                        break;
+                case 'f':
+                        result = cos(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to cosine is not the correct type\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *sine(struct node *head)
+{
+        double result;
+        struct node *new = NULL;
+
+        if (head->next != NULL) {
+                printf("error> \n\nsine has been called with %d arguments; it requires exactly one argument\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        result = sin(head->num);
+                        break;
+                case 'f':
+                        result = sin(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object \"%s\", passed as the first argument to sine is not the correct type\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
+
+struct node *logBe(struct node *head)
+{
+        double result;
+        struct node *new = NULL;
+
+        if (head->next !=  NULL){
+                printf("error> \n\nlogBe has been called with %d arguments; it requires exactly one argument\n", length(head));
+                exit(0);
+        }
+
+        switch(head->flag) {
+                case 'i':
+                        result = log(head->num);
+                        break;
+                case 'f':
+                        result = log(head->f);
+                        break;
+                case 'S':
+                        printf("error> The object\"%s\", passed as the first argument to logBe is not the correct type\n", head->str);
+                        exit(0);
+        }
+
+        new = (struct node *) malloc(sizeof(struct node));
+        new->flag = 'f';
+        new->f = result;
+        new->next = NULL;
+
+        return new;
+}
